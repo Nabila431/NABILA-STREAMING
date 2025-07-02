@@ -1,0 +1,21 @@
+export function renderProfilePage() {
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML = `
+        <h2>Your Profile</h2>
+        <div id="userDetails"></div>
+    `;
+    
+    fetchUserProfile();
+}
+
+async function fetchUserProfile() {
+    const response = await fetch(`${API_URL}/profile`);
+    const userProfile = await response.json();
+    
+    const userDetails = document.getElementById('userDetails');
+    userDetails.innerHTML = `
+        <p>Name: ${userProfile.name}</p>
+        <p>Email: ${userProfile.email}</p>
+        <p>Uploaded Videos: ${userProfile.uploadedVideosCount}</p>
+    `;
+}
