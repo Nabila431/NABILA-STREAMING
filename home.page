@@ -1,0 +1,29 @@
+export function renderHomePage() {
+    const mainContent = document.getElementById('mainContent');
+    mainContent.innerHTML = `
+        <h2>Featured Videos</h2>
+        <div id="videoList" class="video-container"></div>
+    `;
+    
+    const videos = [
+        {
+            title: "The Queen Of Pretend - Ciptaan - Nabila Ahmad_HD",
+            url: "https://mux.com/video/nrGPqEXrU02JhcpNIJLDaRWmzspYWBBJVFBYyxqOPYhQ"
+        },
+        {
+            title: "Love poem (Puisi Cinta) - Ciptaan - Nabila Ahmad_HD",
+            url: "https://mux.com/video/00rta8D86Qo38wDHr4dxZsRazLP00TIOaffDz00J3JLQfA"
+        },
+        // Tambahkan video lain di sini...
+    ];
+
+    const videoList = document.getElementById('videoList');
+    videos.forEach(video => {
+        videoList.innerHTML += `
+            <div>
+                <h3>${video.title}</h3>
+                <video src="${video.url}" controls></video>
+            </div>
+        `;
+    });
+}
